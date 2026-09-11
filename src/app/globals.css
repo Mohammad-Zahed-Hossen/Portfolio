@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #F8FAFC;
+    --foreground: #16181D;
+    --muted: #4B5563;
+    --muted-surface: #F1F5F9;
+    --accent: #1D4ED8;
+    --accent-hover: #1E40AF;
+    --border: #D9E1EA;
+    --surface: #FFFFFF;
+    --surface-hover: #F8FAFC;
+    --ring: #1D4ED8;
+  }
+
+  .dark {
+    --background: #111827;
+    --foreground: #F3F4F6;
+    --muted: #9CA3AF;
+    --muted-surface: #1F2937;
+    --accent: #60A5FA;
+    --accent-hover: #93C5FD;
+    --border: #374151;
+    --surface: #162032;
+    --surface-hover: #1E293B;
+    --ring: #60A5FA;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    min-height: 100vh;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Accessibility: Support prefers-reduced-motion across the entire site */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-surface: var(--muted-surface);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Accessible focus ring utility */
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
