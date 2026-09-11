@@ -1,12 +1,24 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { getProjectBySlug, projects } from "@/content/projects";
+import {
+  getProjectBySlug,
+  getPublishedProjects,
+  getAdjacentProjects,
+} from "@/content/projects";
 import { siteConfig } from "@/content/site-config";
 import { PageContainer } from "@/components/layout/page-container";
-import { StatusBadge } from "@/components/shared/status-badge";
-import { ExternalLink } from "@/components/shared/external-link";
-import { ArrowLeft, GitBranch, CheckCircle2 } from "lucide-react";
+import { ProjectCaseStudyHero } from "@/components/projects/project-case-study-hero";
+import { ProjectSectionNav } from "@/components/projects/project-section-nav";
+import { ProjectOverviewGrid } from "@/components/projects/project-overview-grid";
+import { ProjectArchitectureDiagram } from "@/components/projects/project-architecture-diagram";
+import { ProjectWorkflow } from "@/components/projects/project-workflow";
+import { ProjectDecisionTable } from "@/components/projects/project-decision-table";
+import { ProjectEvidenceSection } from "@/components/projects/project-evidence-section";
+import { ProjectLimitations } from "@/components/projects/project-limitations";
+import { ProjectRepositoryCta } from "@/components/projects/project-repository-cta";
+import { ProjectNavigation } from "@/components/projects/project-navigation";
+import { SectionDivider } from "@/components/shared/section-divider";
+import { AlertCircle, Sliders } from "lucide-react";
 
 interface ProjectDetailPageProps {
   params: Promise<{
@@ -15,7 +27,8 @@ interface ProjectDetailPageProps {
 }
 
 export async function generateStaticParams() {
-  return projects.map((project) => ({
+  const publishedProjects = getPublishedProjects();
+  return publishedProjects.map((project) => ({
     slug: project.slug,
   }));
 }
@@ -33,8 +46,14 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} | ${siteConfig.name}`,
+    title: `${project.title} &middot; Case Study | ${siteConfig.name}`,
     description: project.summary,
+    openGraph: {
+      title: `${project.title} &middot; Architectural Case Study`,
+      description: project.summary,
+      url: `https://mohammad-zahed-hossen.vercel.app/projects/${project.slug}`,
+      type: "article",
+    },
   };
 }
 
@@ -44,134 +63,163 @@ export default async function ProjectDetailPage({
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 
-  if (!project) {
+  if (!project || project.visibility === "archived") {
     notFound();
   }
 
+  const adjacent = getAdjacentProjects(slug);
+  const caseStudy = project.caseStudy;
+
   return (
-    <div className="py-12 sm:py-20">
-      <PageContainer size="narrow">
-        <div className="space-y-10">
-          {/* Breadcrumb / Back link */}
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 text-xs font-mono text-muted hover:text-accent focus-ring rounded-xs transition-colors py-1"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-            Back to Projects Catalogue
-          </Link>
+    <div className="py-10 sm:py-16">
+      <PageContainer size="wide">
+        <div className="space-y-12 sm:space-y-16">
+          {/* 1. Project Hero & Metadata Strip */}
+          <ProjectCaseStudyHero project={project} />
 
-          {/* Header */}
-          <div className="space-y-4 border-b border-border pb-8">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <StatusBadge status={project.status} />
-              <span className="text-xs font-mono text-muted">
-                Domain: {project.primaryDomain}
-              </span>
-            </div>
+          {/* 2. Desktop Quick Section Navigation */}
+          {project.caseStudyReady && caseStudy && (
+            <ProjectSectionNav />
+          )}
 
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-              {project.title}
-            </h1>
+          {/* 3. Overview Grid (Snapshot of constraints & outcomes) */}
+          {caseStudy && <ProjectOverviewGrid project={project} />}
 
-            <p className="text-base sm:text-lg text-muted leading-relaxed">
-              {project.summary}
-            </p>
-
-            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono">
-              {project.repositoryUrl && (
-                <ExternalLink href={project.repositoryUrl}>
-                  <span className="inline-flex items-center gap-1">
-                    <GitBranch className="h-3.5 w-3.5" aria-hidden="true" />
-                    Source Repository
-                  </span>
-                </ExternalLink>
-              )}
-              <span className="text-muted">Role: {project.role}</span>
-            </div>
-          </div>
-
-          {/* Technical Context */}
-          <div className="space-y-8">
-            {/* Benchmark Callout if present */}
-            {project.benchmarkContext && (
-              <div className="rounded-lg border border-accent/40 bg-accent/5 p-4 space-y-1">
-                <div className="text-xs font-mono text-accent font-semibold uppercase tracking-wider">
-                  Verified Benchmark Context
+          {/* Full Case Study Sections (when caseStudyReady is true) */}
+          {project.caseStudyReady && caseStudy ? (
+            <div className="space-y-16 sm:space-y-24">
+              {/* 4. Problem Space & Constraints */}
+              <section
+                id="problem-constraints"
+                aria-labelledby="problem-heading"
+                className="space-y-8"
+              >
+                <div className="space-y-2">
+                  <div className="text-xs font-mono uppercase tracking-wider text-accent font-semibold">
+                    Core Problem Definition
+                  </div>
+                  <h2
+                    id="problem-heading"
+                    className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground"
+                  >
+                    The Engineering Challenge
+                  </h2>
                 </div>
-                <p className="text-sm font-mono text-foreground">
-                  {project.benchmarkContext}
-                </p>
-              </div>
-            )}
 
-            {/* Problem statement */}
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold tracking-tight text-foreground">
-                Engineering Challenge &amp; Problem Statement
-              </h2>
-              <p className="text-sm text-muted leading-relaxed">
-                {project.problemSummary}
-              </p>
-            </section>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  {/* Problem Narrative Prose (Narrower reading column) */}
+                  <div className="lg:col-span-7 space-y-4 text-sm sm:text-base text-muted leading-relaxed">
+                    <p>{caseStudy.problem}</p>
+                    <p className="text-foreground font-medium">
+                      {project.problemSummary}
+                    </p>
+                  </div>
 
-            {/* Architectural Approach */}
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold tracking-tight text-foreground">
-                Architectural Strategy
-              </h2>
-              <p className="text-sm text-muted leading-relaxed">
-                {project.approachSummary}
-              </p>
-            </section>
-
-            {/* Key Verified Highlights */}
-            {project.highlights && project.highlights.length > 0 && (
-              <section className="space-y-3">
-                <h2 className="text-lg font-bold tracking-tight text-foreground">
-                  Core Implementation Highlights
-                </h2>
-                <div className="grid grid-cols-1 gap-2">
-                  {project.highlights.map((highlight) => (
-                    <div
-                      key={highlight}
-                      className="flex items-start gap-2.5 rounded-md border border-border bg-surface p-3 text-xs text-muted"
-                    >
-                      <CheckCircle2 className="h-4 w-4 text-accent shrink-0 mt-0.5" aria-hidden="true" />
-                      <span className="text-foreground/90 font-medium">{highlight}</span>
+                  {/* Operational Constraints Card List */}
+                  <div className="lg:col-span-5 rounded-xl border border-border bg-surface p-5 sm:p-6 space-y-4 shadow-xs">
+                    <div className="flex items-center gap-2 text-foreground font-semibold text-xs font-mono uppercase tracking-wider">
+                      <Sliders className="h-4 w-4 text-accent" aria-hidden="true" />
+                      <span>Operational Constraints</span>
                     </div>
-                  ))}
+
+                    <ul className="space-y-3 text-xs text-muted">
+                      {caseStudy.constraints.map((constraint) => (
+                        <li key={constraint} className="flex items-start gap-2.5">
+                          <span className="font-mono text-accent font-bold">&bull;</span>
+                          <span className="leading-relaxed">{constraint}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </section>
-            )}
 
-            {/* Target Technology Stack */}
-            <section className="space-y-3">
-              <h2 className="text-lg font-bold tracking-tight text-foreground">
-                Target Technology Stack
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-md border border-border bg-surface px-3 py-1 text-xs font-mono text-foreground"
+              {/* 5. Solution Strategy Summary */}
+              <section aria-labelledby="solution-heading" className="space-y-4">
+                <div className="space-y-1">
+                  <div className="text-xs font-mono uppercase tracking-wider text-accent font-semibold">
+                    Architectural Response
+                  </div>
+                  <h2
+                    id="solution-heading"
+                    className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground"
                   >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </section>
+                    Architectural Strategy &amp; Core Approach
+                  </h2>
+                </div>
+                <div className="rounded-xl border border-border bg-surface p-6 sm:p-8 space-y-4">
+                  <p className="text-sm sm:text-base text-foreground/90 font-medium leading-relaxed">
+                    {caseStudy.solutionSummary}
+                  </p>
+                  <p className="text-sm text-muted leading-relaxed">
+                    {project.approachSummary}
+                  </p>
+                </div>
+              </section>
 
-            {/* Phase 2 Scope & Phase 3 Roadmap Notice */}
-            <div className="rounded-lg border border-border bg-muted-surface p-5 space-y-2">
-              <div className="text-xs font-mono uppercase tracking-wider text-accent font-semibold">
-                Case Study Scope Notice
-              </div>
-              <p className="text-xs text-muted leading-relaxed">
-                This overview summarizes the architecture and current verification status. Detailed technical case studies featuring end-to-end data-flow figures, test fixture logs, and trade-off analyses are scheduled for release in Phase 3.
-              </p>
+              <SectionDivider />
+
+              {/* 6. Architecture Diagram */}
+              <ProjectArchitectureDiagram
+                slug={project.slug}
+                architecture={caseStudy.architecture}
+              />
+
+              <SectionDivider />
+
+              {/* 7. Workflow Walkthrough */}
+              <ProjectWorkflow steps={caseStudy.workflowSteps} />
+
+              <SectionDivider />
+
+              {/* 8. Technical Decisions & Trade-offs */}
+              <ProjectDecisionTable decisions={caseStudy.technicalDecisions} />
+
+              <SectionDivider />
+
+              {/* 9. Evidence & Evaluation */}
+              <ProjectEvidenceSection
+                evidence={caseStudy.evidence}
+                benchmarkContext={project.benchmarkContext}
+              />
+
+              <SectionDivider />
+
+              {/* 10. Limitations & Roadmap */}
+              <ProjectLimitations
+                limitations={caseStudy.limitations}
+                nextSteps={caseStudy.nextSteps}
+              />
+
+              {/* 11. Repository CTA */}
+              <ProjectRepositoryCta
+                repositoryUrl={project.repositoryUrl}
+                projectTitle={project.title}
+              />
             </div>
-          </div>
+          ) : (
+            /* Fallback scaffold when caseStudyReady is false */
+            <div className="rounded-xl border border-border bg-muted-surface p-8 space-y-4 text-center">
+              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-accent font-semibold">
+                <AlertCircle className="h-4 w-4" aria-hidden="true" />
+                <span>Project Summary Overview</span>
+              </div>
+              <p className="text-sm text-muted max-w-xl mx-auto leading-relaxed">
+                A full architectural case study for this project is being documented. In the interim, you can inspect the verified repository code directly.
+              </p>
+              {project.repositoryUrl && (
+                <div className="pt-2">
+                  <ProjectRepositoryCta
+                    repositoryUrl={project.repositoryUrl}
+                    projectTitle={project.title}
+                  />
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* 12. Previous & Next Project Navigation */}
+          <ProjectNavigation prev={adjacent.prev} next={adjacent.next} />
         </div>
       </PageContainer>
     </div>

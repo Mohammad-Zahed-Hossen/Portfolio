@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { projects } from "@/content/projects";
+import { getFeaturedProjects } from "@/content/projects";
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ProjectCard } from "@/components/projects/project-card";
 import { ArrowRight } from "lucide-react";
 
 export function FeaturedProjects() {
-  const featured = projects.filter((p) => p.featured);
+  const featured = getFeaturedProjects();
 
   return (
     <section aria-labelledby="featured-projects-heading" className="py-16 sm:py-24">
@@ -16,7 +16,7 @@ export function FeaturedProjects() {
             <SectionHeading
               eyebrow="Selected Engineering Work"
               title="Featured Systems"
-              description="Verifiable software architectures designed under concrete constraints: local-first retrieval, CPU efficiency, and multi-role product coordination."
+              description="Verifiable software architectures designed under concrete constraints: local-first retrieval, CPU efficiency, and multi-role product coordination. Each card links to a full architectural case study."
             />
             <Link
               href="/projects"
