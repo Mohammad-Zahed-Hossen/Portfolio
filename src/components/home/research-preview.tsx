@@ -30,7 +30,7 @@ export function ResearchPreview() {
           <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link
               href="/research"
-              className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-accent-hover focus-ring transition-colors shadow-xs"
+              className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-accent-hover focus-ring transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 hover:shadow-sm shadow-xs"
             >
               <span>Explore research direction</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

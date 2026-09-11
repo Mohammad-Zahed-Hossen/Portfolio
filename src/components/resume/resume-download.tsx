@@ -20,7 +20,8 @@ export function ResumeDownload() {
     <a
       href={`/${resumeRelativePath}`}
       download="Mohammad_Zahed_Hossen_Resume.pdf"
-      className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white hover:bg-accent-hover focus-ring transition-colors shadow-xs"
+      aria-label="Download Mohammad Zahed Hossen's resume as a PDF document"
+      className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white hover:bg-accent-hover focus-ring transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 hover:shadow-sm"
     >
       <Download className="h-4 w-4" aria-hidden="true" />
       <span>Download Resume PDF</span>

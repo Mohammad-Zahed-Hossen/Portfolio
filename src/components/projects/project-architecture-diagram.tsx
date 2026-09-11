@@ -298,7 +298,7 @@ function DiagramNodeBox({
 
   return (
     <div
-      className={`rounded-md border p-3 text-left transition-colors ${
+      className={`rounded-md border p-3 text-left transition-colors duration-150 ${
         highlighted
           ? "border-accent bg-accent/10 shadow-xs"
           : "border-border bg-surface hover:border-accent/60"
@@ -309,7 +309,7 @@ function DiagramNodeBox({
           {node.label}
         </span>
       </div>
-      <p className="text-[11px] text-muted leading-tight line-clamp-2">
+      <p className="text-[11px] text-muted leading-relaxed">
         {node.description}
       </p>
     </div>

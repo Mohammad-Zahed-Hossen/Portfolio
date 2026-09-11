@@ -27,7 +27,7 @@ export function ProjectRepositoryCta({
       <div className="shrink-0">
         <ExternalLink
           href={repositoryUrl}
-          className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-xs font-mono font-medium text-white hover:bg-accent-hover focus-ring transition-colors shadow-xs"
+          className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-xs font-mono font-medium text-white hover:bg-accent-hover focus-ring transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 hover:shadow-sm shadow-xs"
         >
           <Terminal className="h-3.5 w-3.5" aria-hidden="true" />
           <span>Open Repository</span>

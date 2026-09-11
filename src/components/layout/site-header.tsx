@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
@@ -13,6 +13,15 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
+
+  const handleCloseMobileMenu = () => {
+    setMobileMenuOpen(false);
+    // Ensure focus is restored to the trigger button
+    setTimeout(() => {
+      hamburgerButtonRef.current?.focus();
+    }, 50);
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background">
@@ -75,11 +84,12 @@ export function SiteHeader() {
             </div>
 
             <button
+              ref={hamburgerButtonRef}
               type="button"
               onClick={() => setMobileMenuOpen(true)}
               aria-expanded={mobileMenuOpen}
               aria-label="Open mobile menu"
-              className="inline-flex md:hidden h-9 w-9 items-center justify-center rounded-md border border-border bg-surface text-muted hover:text-foreground focus-ring"
+              className="inline-flex md:hidden h-9 w-9 items-center justify-center rounded-md border border-border bg-surface text-muted hover:text-foreground focus-ring transition-colors duration-150"
             >
               <Menu className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -90,7 +100,7 @@ export function SiteHeader() {
       {/* Mobile navigation drawer */}
       <MobileNav
         isOpen={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
+        onClose={handleCloseMobileMenu}
       />
     </header>
   );

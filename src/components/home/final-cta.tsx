@@ -27,14 +27,14 @@ export function FinalCta() {
           <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
             <a
               href={`mailto:${siteConfig.email}`}
-              className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white hover:bg-accent-hover focus-ring transition-colors shadow-xs"
+              className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white hover:bg-accent-hover focus-ring transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 hover:shadow-sm shadow-xs"
             >
               <Mail className="h-4 w-4" aria-hidden="true" />
               <span>Send direct email: {siteConfig.email}</span>
             </a>
             <Link
               href="/resume"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-4 py-2.5 text-sm font-medium text-foreground hover:border-accent hover:text-accent focus-ring transition-colors"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-4 py-2.5 text-sm font-medium text-foreground hover:border-accent hover:text-accent focus-ring transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 hover:shadow-xs"
             >
               <FileText className="h-4 w-4" aria-hidden="true" />
               <span>View resume</span>
