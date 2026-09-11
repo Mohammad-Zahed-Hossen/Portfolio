@@ -198,22 +198,52 @@ export default async function ProjectDetailPage({
               />
             </div>
           ) : (
-            /* Fallback scaffold when caseStudyReady is false */
-            <div className="rounded-xl border border-border bg-muted-surface p-8 space-y-4 text-center">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-accent font-semibold">
-                <AlertCircle className="h-4 w-4" aria-hidden="true" />
-                <span>Project Summary Overview</span>
-              </div>
-              <p className="text-sm text-muted max-w-xl mx-auto leading-relaxed">
-                A full architectural case study for this project is being documented. In the interim, you can inspect the verified repository code directly.
-              </p>
-              {project.repositoryUrl && (
-                <div className="pt-2">
-                  <ProjectRepositoryCta
-                    repositoryUrl={project.repositoryUrl}
-                    projectTitle={project.title}
-                  />
+            /* Polished lightweight detail state when caseStudyReady is false */
+            <div className="space-y-12">
+              <div className="rounded-xl border border-border bg-surface p-6 sm:p-8 space-y-6">
+                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-accent font-semibold">
+                  <AlertCircle className="h-4 w-4" aria-hidden="true" />
+                  <span>Case Study In Preparation</span>
                 </div>
+                
+                <div className="space-y-4 text-muted leading-relaxed">
+                  <p className="text-foreground font-medium text-base">
+                    {project.problemSummary}
+                  </p>
+                  <p className="text-sm">
+                    {project.approachSummary}
+                  </p>
+                </div>
+
+                {project.highlights && project.highlights.length > 0 && (
+                  <div className="space-y-3 pt-2">
+                    <div className="text-xs font-mono uppercase tracking-wider text-foreground font-semibold">
+                      Current Engineering Focus
+                    </div>
+                    <ul className="space-y-2 text-xs text-muted">
+                      {project.highlights.map((item) => (
+                        <li key={item} className="flex items-start gap-2.5">
+                          <span className="font-mono text-accent font-bold">&bull;</span>
+                          <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="pt-4 border-t border-border">
+                  <p className="text-xs font-mono text-muted leading-relaxed">
+                    <span className="font-semibold text-foreground">Scope Status: </span>
+                    An in-depth architectural case study, data-flow diagrams, and evaluation evidence for this project are being prepared as documentation and test artifacts are formalized.
+                  </p>
+                </div>
+              </div>
+
+              {project.repositoryUrl && (
+                <ProjectRepositoryCta
+                  repositoryUrl={project.repositoryUrl}
+                  projectTitle={project.title}
+                />
               )}
             </div>
           )}

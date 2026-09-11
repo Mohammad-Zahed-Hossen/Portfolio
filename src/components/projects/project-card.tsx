@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Project } from "@/types";
 import { StatusBadge } from "@/components/shared/status-badge";
+import { TechnicalLabel } from "@/components/shared/technical-label";
 import { ArrowRight, GitBranch } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -71,15 +72,12 @@ export function ProjectCard({
           </div>
         )}
 
-        {/* Tags */}
+        {/* Technical Labels (2 to 4 labels) */}
         <div className="flex flex-wrap gap-1.5 pt-2">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-xs bg-muted-surface px-2 py-0.5 text-[11px] font-mono text-muted"
-            >
+          {project.tags.slice(0, 4).map((tag) => (
+            <TechnicalLabel key={tag} variant="default">
               {tag}
-            </span>
+            </TechnicalLabel>
           ))}
         </div>
       </div>
@@ -90,7 +88,7 @@ export function ProjectCard({
           href={`/projects/${project.slug}`}
           className="inline-flex items-center gap-1 font-medium text-accent hover:underline focus-ring rounded-xs"
         >
-          <span>Read Case Study</span>
+          <span>{project.caseStudyReady ? "Read Case Study" : "View Overview"}</span>
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </Link>
 

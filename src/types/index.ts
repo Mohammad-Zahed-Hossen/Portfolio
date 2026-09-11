@@ -6,13 +6,19 @@ export type ProjectStatus =
 
 export type ProjectVisibility = "published" | "experimental" | "archived";
 
-export type EvidenceStatus = "measured" | "implemented" | "in-progress" | "planned";
+export type ProjectEvidenceStatus =
+  | "measured"
+  | "implemented"
+  | "in-progress"
+  | "planned";
+
+export type EvidenceStatus = ProjectEvidenceStatus;
 
 export interface ProjectEvidence {
   label: string;
   value: string;
   context: string;
-  status: EvidenceStatus;
+  status: ProjectEvidenceStatus;
 }
 
 export interface ArchitectureNode {
@@ -59,6 +65,8 @@ export interface CaseStudySection {
   nextSteps: string[];
 }
 
+export type CaseStudy = CaseStudySection;
+
 export interface Project {
   slug: string;
   title: string;
@@ -77,7 +85,7 @@ export interface Project {
   approachSummary: string;
   benchmarkContext?: string;
   highlights: string[];
-  caseStudy?: CaseStudySection;
+  caseStudy?: CaseStudy;
 }
 
 export interface ResearchArea {
