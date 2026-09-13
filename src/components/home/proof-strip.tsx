@@ -1,5 +1,6 @@
 import { PageContainer } from "@/components/layout/page-container";
 import { GraduationCap, Award, Compass } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 export function ProofStrip() {
   const proofItems = [
@@ -17,27 +18,27 @@ export function ProofStrip() {
     },
     {
       icon: Compass,
-      label: "Technical Direction",
-      detail: "AI systems, evaluation & trustworthy MLLMs",
-      subtext: "Reproducible protocols & bounded architecture",
+      label: "Current Direction",
+      detail: "AI systems, document workflows & MLLM reliability",
+      subtext: "Evidence, evaluation, and explicit limits",
     },
   ];
 
   return (
-    <section aria-labelledby="proof-heading" className="border-y border-border bg-muted-surface/40 py-8">
+    <section aria-labelledby="proof-heading" className="border-y border-border bg-muted-surface/35 py-7 sm:py-9">
       <h2 id="proof-heading" className="sr-only">
         Academic and Engineering Credentials
       </h2>
       <PageContainer>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Reveal className="grid grid-cols-1 divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0">
           {proofItems.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.label}
-                className="flex items-start gap-3.5 p-3 rounded-md bg-surface/50 border border-border/60"
+                className="flex items-start gap-3.5 px-2 py-4 md:px-6"
               >
-                <div className="rounded-md border border-border bg-surface p-2 text-accent shrink-0">
+                <div className="rounded-lg border border-accent/20 bg-surface-raised p-2 text-accent shrink-0">
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </div>
                 <div className="space-y-0.5">
@@ -55,7 +56,7 @@ export function ProofStrip() {
               </div>
             );
           })}
-        </div>
+        </Reveal>
       </PageContainer>
     </section>
   );

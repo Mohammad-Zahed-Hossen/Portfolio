@@ -4,6 +4,7 @@ import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ProjectCard } from "@/components/projects/project-card";
 import { ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 export function FeaturedProjects() {
   const featured = getFeaturedProjects();
@@ -15,23 +16,23 @@ export function FeaturedProjects() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <SectionHeading
               eyebrow="Selected Engineering Work"
-              title="Featured Systems"
-              description="Verifiable software architectures designed under concrete constraints: local-first retrieval, CPU efficiency, and multi-role product coordination. Each card links to a full architectural case study."
+              title="Projects with inspectable trade-offs"
+              description="These case studies document the problem, engineering approach, evidence, and open limits behind each system."
             />
             <Link
               href="/projects"
               className="inline-flex items-center gap-1 text-xs font-mono font-medium text-accent hover:underline focus-ring rounded-xs shrink-0 py-1"
             >
-              <span>Explore all projects</span>
+              <span>Browse all case studies</span>
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Reveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featured.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
-          </div>
+          </Reveal>
         </div>
       </PageContainer>
     </section>

@@ -11,13 +11,13 @@ export function ProjectDecisionTable({ decisions }: ProjectDecisionTableProps) {
     <section id="decisions" aria-labelledby="decisions-heading" className="space-y-6">
       <div className="space-y-1">
         <div className="text-xs font-mono uppercase tracking-wider text-accent font-semibold">
-          Trade-off Analysis
+          Engineering choices
         </div>
         <h2 id="decisions-heading" className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-          Technical Decisions &amp; Architectural Trade-offs
+          Decisions and the costs they introduce
         </h2>
         <p className="text-sm sm:text-base text-muted max-w-3xl">
-          Explicit engineering trade-offs accepted to satisfy operational boundaries, cost limits, and reliability targets.
+          Each choice addresses a concrete constraint and introduces a cost or limit that remains visible here.
         </p>
       </div>
 

@@ -9,7 +9,7 @@ import { SocialLinks } from "@/components/shared/social-links";
 export const metadata: Metadata = {
   title: `Resume | ${siteConfig.name}`,
   description:
-    "Curriculum vitae, academic merit scholarship, grouped technical skills, and engineering projects of Mohammad Zahed Hossen, final-year CSE student.",
+    "ATS-friendly résumé of Mohammad Zahed Hossen: education, technical skills, engineering projects, and academic mentoring.",
 };
 
 export default function ResumePage() {
@@ -21,12 +21,12 @@ export default function ResumePage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <SectionHeading
               eyebrow="Curriculum Vitae"
-              title="Resume &amp; Qualifications"
-              description="Comprehensive overview of academic standing, engineering competencies, verified software architectures, and teaching experience."
+              title="Résumé"
+              description="Education, technical skills, selected engineering work, and academic mentoring in a factual, scan-friendly format."
               level="h1"
             />
 
-            <div className="shrink-0">
+            <div className="w-full sm:w-auto sm:max-w-xs lg:max-w-none lg:shrink-0">
               <ResumeDownload />
             </div>
           </div>

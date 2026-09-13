@@ -52,10 +52,10 @@ export function ResumeSummary() {
       {/* Professional Summary */}
       <section className="space-y-3">
         <h2 className="text-lg font-bold tracking-tight text-foreground">
-          Professional Profile
+          Professional summary
         </h2>
         <p className="text-sm text-muted leading-relaxed">
-          {siteConfig.role} at {siteConfig.institution} focusing on reliable AI engineering, retrieval evaluation workflows, and document processing systems. Experienced in architecting verifiable pipelines with deterministic test contracts, hybrid retrieval, and CPU-efficient extraction. Seeking AI/ML engineering roles and research opportunities.
+          {siteConfig.role} at {siteConfig.institution}. Focus areas include AI systems, retrieval evaluation, and document processing. Project work includes hybrid retrieval, deterministic test contracts, and CPU-oriented document conversion. Seeking AI/ML engineering roles and research opportunities.
         </p>
       </section>
 
@@ -96,7 +96,7 @@ export function ResumeSummary() {
         <div className="flex items-center gap-2 text-accent">
           <Code2 className="h-5 w-5" aria-hidden="true" />
           <h2 className="text-lg font-bold tracking-tight text-foreground">
-            Grouped Technical Proficiencies
+            Technical skills
           </h2>
         </div>
 
@@ -129,7 +129,7 @@ export function ResumeSummary() {
         <div className="flex items-center gap-2 text-accent">
           <FolderGit2 className="h-5 w-5" aria-hidden="true" />
           <h2 className="text-lg font-bold tracking-tight text-foreground">
-            Featured Systems &amp; Engineering Work
+            Selected engineering projects
           </h2>
         </div>
 
@@ -171,7 +171,7 @@ export function ResumeSummary() {
                   href={`/projects/${project.slug}`}
                   className="text-accent hover:underline inline-flex items-center gap-1 focus-ring rounded-xs"
                 >
-                  <span>Case study</span>
+                  <span>Read case study</span>
                   <ArrowRight className="h-3 w-3" aria-hidden="true" />
                 </Link>
               </div>
@@ -185,7 +185,7 @@ export function ResumeSummary() {
         <div className="flex items-center gap-2 text-accent">
           <Users className="h-5 w-5" aria-hidden="true" />
           <h2 className="text-lg font-bold tracking-tight text-foreground">
-            Academic Mentoring &amp; Teaching Experience
+            Academic mentoring and teaching
           </h2>
         </div>
 
@@ -198,7 +198,7 @@ export function ResumeSummary() {
           </div>
 
           <p className="text-xs text-muted leading-relaxed">
-            Provided structured problem-solving sessions, lab mentorship, and concept walkthroughs for junior undergraduate peers in Data Structures, Object-Oriented Programming (Python/C++), and Database Design. Focused on fostering systematic debugging practices and algorithmic rigor.
+            Led problem-solving sessions, lab mentorship, and concept walkthroughs for junior undergraduate peers in Data Structures, Object-Oriented Programming (Python/C++), and Database Design.
           </p>
         </div>
       </section>

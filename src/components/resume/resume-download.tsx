@@ -9,9 +9,9 @@ export function ResumeDownload() {
 
   if (!fileExists) {
     return (
-      <div className="rounded-md border border-border bg-muted-surface p-4 flex items-center gap-3 text-xs font-mono text-muted">
+      <div role="status" className="rounded-lg border border-border bg-muted-surface/70 p-4 flex items-start gap-3 text-sm leading-relaxed text-muted">
         <AlertCircle className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
-        <span>An updated resume PDF will be available here soon.</span>
+        <span><strong className="font-semibold text-foreground">Resume PDF in preparation.</strong> An updated, verified copy will be published here when ready.</span>
       </div>
     );
   }

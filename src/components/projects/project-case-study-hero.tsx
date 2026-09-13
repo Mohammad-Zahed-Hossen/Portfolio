@@ -4,6 +4,7 @@ import { StatusBadge } from "@/components/shared/status-badge";
 import { TechnicalLabel } from "@/components/shared/technical-label";
 import { ExternalLink } from "@/components/shared/external-link";
 import { ArrowLeft, GitBranch } from "lucide-react";
+import { AmbientBackground } from "@/components/ui/ambient-background";
 
 interface ProjectCaseStudyHeroProps {
   project: Project;
@@ -11,7 +12,9 @@ interface ProjectCaseStudyHeroProps {
 
 export function ProjectCaseStudyHero({ project }: ProjectCaseStudyHeroProps) {
   return (
-    <header className="space-y-6 pb-8 border-b border-border">
+    <header className="relative isolate overflow-hidden rounded-[1.5rem] border border-border bg-surface-raised p-6 space-y-6 shadow-sm sm:p-9">
+      <AmbientBackground variant="project" />
+      <div className="relative space-y-6">
       {/* Breadcrumb Navigation */}
       <nav aria-label="Breadcrumb">
         <Link
@@ -19,7 +22,7 @@ export function ProjectCaseStudyHero({ project }: ProjectCaseStudyHeroProps) {
           className="inline-flex items-center gap-2 text-xs font-mono text-muted hover:text-accent focus-ring rounded-xs transition-colors py-1"
         >
           <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-          <span>Back to Projects Catalogue</span>
+          <span>Back to project case studies</span>
         </Link>
       </nav>
 
@@ -65,11 +68,12 @@ export function ProjectCaseStudyHero({ project }: ProjectCaseStudyHeroProps) {
             <ExternalLink href={project.repositoryUrl} className="py-1">
               <span className="inline-flex items-center gap-1.5 font-semibold">
                 <GitBranch className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>View Source Repository</span>
+                <span>View GitHub profile</span>
               </span>
             </ExternalLink>
           </div>
         )}
+      </div>
       </div>
     </header>
   );

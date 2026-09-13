@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
   github: "https://github.com/Mohammad-Zahed-Hossen",
   linkedin: "https://www.linkedin.com/in/mohammad-zahed-hossen-41374b391",
   positioningStatement:
-    "Final-year CSE student building reliable AI systems, evaluation workflows, and practical full-stack tools.",
+    "Final-year CSE student building AI and document systems that make evidence, evaluation, and operating limits clear.",
   researchPositioning:
     "Trustworthy generative MLLMs: evidence-grounded calibration and selective abstention under missing, conflicting, or degraded visual evidence.",
   focusAreas: [

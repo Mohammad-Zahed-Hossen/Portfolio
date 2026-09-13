@@ -1,27 +1,27 @@
 export function SkillsSummary() {
   const capabilities = [
     {
-      group: "Python & AI/ML Foundations",
+      group: "Python and AI/ML foundations",
       summary:
-        "Strong fundamentals in object-oriented and functional Python, NumPy, PyTorch model loading/inference, and scientific evaluation pipelines. Focus on inspectable code architectures over script-level experimentation.",
+        "Python, NumPy, PyTorch inference, data modeling, and evaluation workflows used across the projects documented here.",
       coreAreas: ["Python 3.x", "PyTorch Inference", "NumPy", "Data Modeling", "Algorithmic Analysis"],
     },
     {
-      group: "AI System Engineering & Retrieval Workflows",
+      group: "AI systems and retrieval workflows",
       summary:
-        "Architecting hybrid dense-sparse vector retrieval, cross-encoder reranking, citation validation contracts, deterministic test suites with Pytest, and abstention protocols for hallucination mitigation.",
+        "Hybrid retrieval, reranking, citation validation, Pytest fixtures, and abstention-oriented evaluation for evidence-grounded systems.",
       coreAreas: ["Hybrid Retrieval", "Vector Embeddings", "Reranking", "Pytest Test Fixtures", "Citation Validation"],
     },
     {
-      group: "API & Full-Stack Application Development",
+      group: "API and full-stack development",
       summary:
-        "Building production-ready backend APIs and modern web interfaces using FastAPI, Node.js, Next.js, and TypeScript. Experience designing role-based schemas, relational databases with PostgreSQL, and accessible UIs.",
+        "FastAPI, Node.js, Next.js, TypeScript, role-aware application design, PostgreSQL, and accessible web interfaces.",
       coreAreas: ["FastAPI", "TypeScript", "Next.js App Router", "PostgreSQL", "RESTful Architecture"],
     },
     {
-      group: "Document Intelligence Tooling",
+      group: "Document intelligence tooling",
       summary:
-        "Developing CPU-optimized document parsers, layout entropy analyzers, table structure recovery, and markdown transformation engines capable of processing complex multi-page inputs without GPU dependencies.",
+        "CPU-oriented document conversion, layout routing, table recovery, and Markdown transformation for multi-page inputs.",
       coreAreas: ["Layout Parsing", "PDF Structure Extraction", "Table Reconstruction", "Markdown Conversion"],
     },
   ];
@@ -33,7 +33,7 @@ export function SkillsSummary() {
           Technical Capabilities
         </h2>
         <p className="text-sm text-muted">
-          High-level competency areas demonstrated across verified software implementations.
+          Technical areas represented in the documented projects and current study.
         </p>
       </div>
 

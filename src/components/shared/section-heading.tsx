@@ -20,22 +20,22 @@ export function SectionHeading({
   const HeadingTag = level;
 
   return (
-    <div className={cn("space-y-2", className)}>
+    <div className={cn("max-w-3xl space-y-3", className)}>
       {eyebrow && (
         <div
           className={cn(
-            "inline-flex items-center text-xs font-mono tracking-wider text-muted uppercase",
+            "inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-[0.12em] text-muted uppercase before:h-px before:w-5 before:bg-accent/60",
             eyebrowClassName
           )}
         >
           {eyebrow}
         </div>
       )}
-      <HeadingTag className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+      <HeadingTag className={cn("font-bold tracking-tight text-foreground", level === "h1" ? "text-3xl leading-[1.08] sm:text-4xl" : "text-2xl leading-[1.15] sm:text-3xl")}>
         {title}
       </HeadingTag>
       {description && (
-        <p className="text-base text-muted max-w-2xl leading-relaxed">
+        <p className="max-w-2xl text-base leading-relaxed text-muted">
           {description}
         </p>
       )}

@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { siteConfig } from "@/content/site-config";
 import { PageContainer } from "@/components/layout/page-container";
 import { ArrowRight, BookOpen } from "lucide-react";
+import { ActionLink } from "@/components/ui/action-link";
 
 export function ResearchPreview() {
   return (
@@ -11,7 +11,7 @@ export function ResearchPreview() {
           <div className="flex items-center gap-2 text-accent">
             <BookOpen className="h-5 w-5" aria-hidden="true" />
             <span className="text-xs font-mono uppercase tracking-wider font-semibold">
-              Undergraduate Thesis &amp; Research Trajectory
+              Undergraduate thesis planning
             </span>
           </div>
 
@@ -23,20 +23,17 @@ export function ResearchPreview() {
               {siteConfig.researchPositioning}
             </h2>
             <p className="text-sm sm:text-base text-muted leading-relaxed max-w-3xl">
-              An ongoing investigation into the vulnerabilities of multimodal LLMs when visual evidence is corrupted or insufficient. Focusing on reproducible evaluation with open-weight models and disciplined calibration metrics rather than unverified claims.
+              Current work is literature review, problem refinement, and benchmark planning—not a completed thesis result. The focus is on how open-weight models should signal uncertainty when visual support is weak.
             </p>
           </div>
 
           <div className="pt-2 flex flex-wrap items-center gap-4">
-            <Link
-              href="/research"
-              className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-accent-hover focus-ring transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 hover:shadow-sm shadow-xs"
-            >
-              <span>Explore research direction</span>
+            <ActionLink href="/research">
+              <span>Review research direction</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            </ActionLink>
             <span className="text-xs font-mono text-muted">
-              Status: Topic Discovery &amp; Literature Review (2026)
+              Current stage: topic discovery &amp; literature review
             </span>
           </div>
         </div>

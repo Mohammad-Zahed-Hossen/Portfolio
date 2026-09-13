@@ -1,86 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, FileText } from "lucide-react";
 import { siteConfig } from "@/content/site-config";
 import { PageContainer } from "@/components/layout/page-container";
 import { SocialLinks } from "@/components/shared/social-links";
-import { ArrowRight, FileText } from "lucide-react";
+import { AmbientBackground } from "@/components/ui/ambient-background";
+import { Reveal } from "@/components/ui/reveal";
+import { HeroVisual } from "@/components/home/hero-visual";
 
 export function HeroSection() {
   return (
-    <section aria-labelledby="hero-heading" className="py-12 sm:py-20">
+    <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden py-14 sm:py-24 lg:py-28">
+      <AmbientBackground variant="hero" />
       <PageContainer>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Main Hero Copy */}
-          <div className="md:col-span-8 space-y-6">
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 rounded-xs border border-border bg-muted-surface px-3 py-1 text-xs font-mono text-muted uppercase tracking-wider">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true" />
-              <span>AI/ML Engineering Portfolio</span>
-            </div>
-
-            {/* Heading & Subtitle */}
-            <div className="space-y-2">
-              <h1
-                id="hero-heading"
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15]"
-              >
-                {siteConfig.name}
-              </h1>
-              <p className="text-lg sm:text-xl font-medium text-accent">
-                {siteConfig.role} &middot; {siteConfig.institution}
-              </p>
-            </div>
-
-            {/* Positioning Statement */}
-            <p className="text-base sm:text-lg text-foreground/90 font-medium leading-relaxed max-w-2xl">
-              {siteConfig.positioningStatement}
-            </p>
-
-            {/* Supporting Paragraph with required keywords */}
-            <p className="text-sm sm:text-base text-muted leading-relaxed max-w-2xl">
-              Focused on engineering verifiable systems across{" "}
-              <strong className="text-foreground font-semibold">evidence-grounded retrieval</strong>,{" "}
-              <strong className="text-foreground font-semibold">document intelligence</strong>, and{" "}
-              <strong className="text-foreground font-semibold">trustworthy VLM/MLLM research</strong>. Dedicated to reproducible evaluation contracts rather than ungrounded claims.
-            </p>
-
-            {/* CTAs */}
-            <div className="pt-2 flex flex-wrap items-center gap-3">
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white hover:bg-accent-hover focus-ring transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 hover:shadow-sm shadow-xs"
-              >
-                <span>View selected projects</span>
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link
-                href="/resume"
-                className="inline-flex items-center gap-2 rounded-md border border-border bg-surface px-4 py-2.5 text-sm font-medium text-foreground hover:border-accent hover:text-accent focus-ring transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 hover:shadow-xs"
-              >
-                <FileText className="h-4 w-4" aria-hidden="true" />
-                <span>View resume</span>
-              </Link>
-            </div>
-
-            {/* Profile links */}
-            <div className="pt-2">
-              <SocialLinks />
-            </div>
-          </div>
-
-          {/* Hero Headshot */}
-          <div className="md:col-span-4 flex justify-center md:justify-end">
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-xl overflow-hidden border border-border bg-surface shadow-xs">
-              <Image
-                src="/assets/images/zahed-portrait.png"
-                alt="Mohammad Zahed Hossen, final-year CSE student and AI/ML engineer"
-                fill
-                priority
-                sizes="(max-width: 768px) 192px, (max-width: 1024px) 224px, 256px"
-                className="object-cover object-top"
-              />
-            </div>
-          </div>
+        <div className="relative grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
+          <Reveal className="space-y-7 lg:col-span-7" delay={0.04}>
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-background/70 px-3 py-1.5 text-xs font-mono uppercase tracking-[.14em] text-muted backdrop-blur-sm"><span className="h-2 w-2 rounded-full bg-emerald-500" />AI/ML Engineering Portfolio</div>
+            <div className="space-y-4"><h1 id="hero-heading" className="display-title max-w-4xl font-extrabold text-foreground">{siteConfig.name}</h1><p className="text-lg font-semibold text-accent sm:text-xl">{siteConfig.role} <span className="text-muted">·</span> {siteConfig.institution}</p></div>
+            <p className="max-w-2xl text-lg font-medium leading-relaxed text-foreground/90">{siteConfig.positioningStatement}</p>
+            <p className="max-w-2xl text-base leading-relaxed text-muted">Current work spans retrieval systems that show their evidence, document conversion that preserves usable structure, and thesis planning on when multimodal models should abstain. Each project records its constraints, evidence, and unfinished work.</p>
+            <div className="flex flex-wrap gap-3 pt-1"><Link href="/projects" className="group inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/20 transition duration-200 hover:-translate-y-0.5 hover:bg-accent-hover focus-ring">Read project case studies <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" /></Link><Link href="/resume" className="inline-flex items-center gap-2 rounded-lg border border-border bg-background/75 px-5 py-3 text-sm font-semibold text-foreground backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-accent focus-ring"><FileText className="h-4 w-4 text-accent" />Review qualifications</Link></div>
+            <SocialLinks />
+          </Reveal>
+          <Reveal className="relative lg:col-span-5" delay={0.12}>
+            <div className="relative mx-auto w-fit lg:ml-auto"><div className="absolute -inset-4 rounded-[2rem] border border-accent/20 bg-accent/5 blur-sm" /><div className="relative h-56 w-56 overflow-hidden rounded-[1.7rem] border border-border bg-surface-raised p-2 shadow-2xl shadow-background/30 sm:h-72 sm:w-72"><div className="relative h-full overflow-hidden rounded-[1.25rem]"><Image src="/assets/images/zahed-portrait.png" alt="Mohammad Zahed Hossen, final-year CSE student and AI/ML engineer" fill priority sizes="(max-width: 640px) 224px, 288px" className="object-cover object-top" /></div></div><div className="absolute -bottom-4 -left-5 rounded-lg border border-border bg-background/85 px-3 py-2 text-[10px] font-mono uppercase tracking-[.14em] text-muted backdrop-blur-sm">Chattogram · Bangladesh</div></div>
+            <div className="mt-12 lg:mt-8"><HeroVisual /></div>
+          </Reveal>
         </div>
       </PageContainer>
     </section>

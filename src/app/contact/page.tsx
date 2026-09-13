@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { siteConfig } from "@/content/site-config";
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ExternalLink } from "@/components/shared/external-link";
 import { Mail, MapPin, GitBranch, Link2, Clock, FileText, ArrowRight } from "lucide-react";
+import { ActionLink } from "@/components/ui/action-link";
 
 export const metadata: Metadata = {
   title: `Contact | ${siteConfig.name}`,
   description:
-    "Direct contact channels, recruitment inquiries, and research collaboration paths for Mohammad Zahed Hossen.",
+    "Direct contact channels for AI/ML engineering, research, collaboration, and project discussion with Mohammad Zahed Hossen.",
 };
 
 export default function ContactPage() {
@@ -18,9 +18,9 @@ export default function ContactPage() {
       <PageContainer>
         <div className="space-y-12 max-w-2xl">
           <SectionHeading
-            eyebrow="Direct Communication"
-            title="Get in Touch"
-            description="Available for AI/ML engineering positions, undergraduate research collaborations, and discussions regarding reliable evaluation contracts."
+            eyebrow="Direct contact"
+            title="Get in touch"
+            description="For AI/ML engineering, research, collaboration, or a project discussion, use these direct channels."
             level="h1"
           />
 
@@ -30,11 +30,11 @@ export default function ContactPage() {
               <div className="flex items-center gap-2 text-accent">
                 <Mail className="h-5 w-5" aria-hidden="true" />
                 <h2 className="text-base font-semibold text-foreground">
-                  Direct Email Channel
+                  Email
                 </h2>
               </div>
               <p className="text-sm text-muted leading-relaxed">
-                Email is the fastest and most dependable channel for formal recruitment inquiries, research proposals, or technical discussions.
+                Use email for engineering roles, research opportunities, collaboration, or a project discussion.
               </p>
               <div className="pt-1">
                 <a
@@ -42,7 +42,7 @@ export default function ContactPage() {
                   className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white hover:bg-accent-hover focus-ring transition-colors shadow-xs"
                 >
                   <Mail className="h-4 w-4" aria-hidden="true" />
-                  <span>Send Email: {siteConfig.email}</span>
+                  <span>Email {siteConfig.email}</span>
                 </a>
               </div>
             </div>
@@ -56,8 +56,8 @@ export default function ContactPage() {
                     GitHub
                   </span>
                 </div>
-                <p className="text-xs text-muted">
-                  Source code repositories, test fixtures, and active contributions.
+                <p className="text-sm leading-relaxed text-muted">
+                  Repositories for project source code, test fixtures, and implementation details.
                 </p>
                 <div className="pt-1">
                   <ExternalLink href={siteConfig.github}>
@@ -73,8 +73,8 @@ export default function ContactPage() {
                     LinkedIn
                   </span>
                 </div>
-                <p className="text-xs text-muted">
-                  Professional network, verified academic updates, and messaging.
+                <p className="text-sm leading-relaxed text-muted">
+                  Professional profile and direct messaging.
                 </p>
                 <div className="pt-1">
                   <ExternalLink href={siteConfig.linkedin}>
@@ -92,20 +92,17 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-foreground">
-                    Looking for Qualifications &amp; Skills?
+                    Qualifications and skills
                   </div>
-                  <div className="text-xs text-muted">
-                    Review full academic snapshot and technical competency groups.
+                  <div className="text-sm text-muted">
+                    Review education, technical skills, selected projects, and mentoring.
                   </div>
                 </div>
               </div>
-              <Link
-                href="/resume"
-                className="inline-flex items-center gap-1 text-xs font-mono font-medium text-accent hover:underline focus-ring rounded-xs shrink-0 py-1"
-              >
-                <span>View Resume</span>
+              <ActionLink href="/resume" variant="text" className="shrink-0">
+                <span>Review résumé</span>
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </Link>
+              </ActionLink>
             </div>
 
             {/* Location & Timezone info */}
@@ -122,8 +119,8 @@ export default function ContactPage() {
 
             {/* Restrained Scope Note */}
             <div className="rounded-md border border-border/80 bg-surface/50 p-4 text-xs font-mono text-muted">
-              <span className="font-semibold text-foreground">Direct Access Notice: </span>
-              In keeping with a static, secure, and privacy-respecting portfolio, this site uses direct email contact rather than an opaque form with third-party tracking scripts.
+              <span className="font-semibold text-foreground">Contact note: </span>
+              This static portfolio uses direct email rather than a form or third-party tracking.
             </div>
           </div>
         </div>

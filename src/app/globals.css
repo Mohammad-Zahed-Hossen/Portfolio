@@ -2,37 +2,42 @@
 
 @layer base {
   :root {
-    --background: #F8FAFC;
-    --foreground: #16181D;
-    --muted: #4B5563;
-    --muted-surface: #F1F5F9;
-    --accent: #1D4ED8;
-    --accent-hover: #1E40AF;
-    --border: #D9E1EA;
+    --background: #F5F7FB;
+    --foreground: #102033;
+    --muted: #516174;
+    --muted-surface: #EAF0F8;
+    --accent: #1D5FD1;
+    --accent-hover: #1247AC;
+    --border: #D7E0EC;
     --surface: #FFFFFF;
-    --surface-hover: #F8FAFC;
-    --ring: #1D4ED8;
+    --surface-raised: #F9FBFF;
+    --surface-hover: #EDF4FC;
+    --violet: #7456D9;
+    --cyan: #0A90A8;
+    --ring: #1D5FD1;
   }
 
   .dark {
-    --background: #111827;
-    --foreground: #F3F4F6;
-    --muted: #9CA3AF;
-    --muted-surface: #1F2937;
-    --accent: #60A5FA;
-    --accent-hover: #93C5FD;
-    --border: #374151;
-    --surface: #162032;
-    --surface-hover: #1E293B;
-    --ring: #60A5FA;
+    --background: #08111F;
+    --foreground: #EDF4FF;
+    --muted: #A6B5C8;
+    --muted-surface: #102038;
+    --accent: #67AEFF;
+    --accent-hover: #9ACBFF;
+    --border: #263A54;
+    --surface: #0E1B2D;
+    --surface-raised: #13243A;
+    --surface-hover: #172B45;
+    --violet: #9C82FF;
+    --cyan: #45D6E8;
+    --ring: #9ACBFF;
   }
 
-  * {
-    border-color: var(--border);
-  }
+  * { border-color: var(--border); }
 
   body {
     background-color: var(--background);
+    background-image: linear-gradient(to bottom, color-mix(in srgb, var(--background) 96%, transparent), var(--background));
     color: var(--foreground);
     min-height: 100vh;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -41,16 +46,14 @@
     transition: background-color 200ms ease, color 200ms ease;
   }
 
-  /* Accessibility: Support prefers-reduced-motion across the entire site */
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+    .ambient-aurora { animation: none; }
   }
 }
 
@@ -63,18 +66,32 @@
   --color-accent-hover: var(--accent-hover);
   --color-border: var(--border);
   --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
   --color-surface-hover: var(--surface-hover);
   --color-ring: var(--ring);
-
   --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* Accessible focus ring utility */
-.focus-ring {
-  outline: none;
+@layer utilities {
+  .editorial-grid {
+    background-image: linear-gradient(color-mix(in srgb, var(--border) 46%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--border) 46%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(to bottom, black, transparent 86%);
+  }
+  .ambient-aurora {
+    background: radial-gradient(circle at 18% 10%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 34%), radial-gradient(circle at 82% 24%, color-mix(in srgb, var(--violet) 18%, transparent), transparent 31%), radial-gradient(circle at 62% 85%, color-mix(in srgb, var(--cyan) 13%, transparent), transparent 28%);
+    animation: ambient-drift 20s ease-in-out infinite alternate;
+  }
+  .surface-raised { background-color: var(--surface-raised); }
+  .luminous-border { box-shadow: inset 0 1px 0 color-mix(in srgb, white 12%, transparent), 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent); }
+  .display-title { font-size: clamp(2.75rem, 7vw, 5.75rem); line-height: .98; letter-spacing: -.065em; }
 }
-.focus-ring:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
+
+@keyframes ambient-drift {
+  from { transform: scale(1) translate3d(0, 0, 0); opacity: .72; }
+  to { transform: scale(1.08) translate3d(-1.5%, 1%, 0); opacity: 1; }
 }
+
+.focus-ring { outline: none; }
+.focus-ring:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }

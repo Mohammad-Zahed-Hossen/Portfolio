@@ -16,10 +16,17 @@ export function ProjectCard({
   className,
   showHighlights = true,
 }: ProjectCardProps) {
+  const accentClass = project.slug === "unified-markdown-converter"
+    ? "[--project-accent:var(--cyan)]"
+    : project.slug === "schoolbridge"
+      ? "[--project-accent:var(--violet)]"
+      : "[--project-accent:var(--accent)]";
+
   return (
     <article
       className={cn(
-        "flex flex-col justify-between rounded-lg border border-border bg-surface p-6 sm:p-7 transition-colors hover:border-accent/80 focus-within:border-accent",
+        "group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-border bg-surface-raised p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[color:var(--project-accent)] hover:shadow-xl hover:shadow-background/20 focus-within:border-[color:var(--project-accent)] sm:p-7",
+        accentClass,
         className
       )}
     >
@@ -36,7 +43,7 @@ export function ProjectCard({
         <h3 className="text-xl font-bold tracking-tight text-foreground">
           <Link
             href={`/projects/${project.slug}`}
-            className="hover:text-accent focus-ring rounded-xs transition-colors"
+            className="hover:text-[color:var(--project-accent)] focus-ring rounded-xs transition-colors"
           >
             {project.title}
           </Link>
@@ -59,7 +66,7 @@ export function ProjectCard({
         {showHighlights && project.highlights && project.highlights.length > 0 && (
           <div className="space-y-1.5 pt-2">
             <div className="text-[11px] font-mono uppercase tracking-wider text-muted font-semibold">
-              Verified Focus
+              What to inspect
             </div>
             <ul className="space-y-1 text-xs text-muted">
               {project.highlights.slice(0, 3).map((item) => (
@@ -83,13 +90,13 @@ export function ProjectCard({
       </div>
 
       {/* Footer link actions */}
-      <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-mono">
+      <div className="mt-auto pt-6 border-t border-border flex items-center justify-between text-xs font-mono">
         <Link
           href={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-1 font-medium text-accent hover:underline focus-ring rounded-xs"
+          className="inline-flex items-center gap-1 font-medium text-[color:var(--project-accent)] focus-ring rounded-xs"
         >
-          <span>{project.caseStudyReady ? "Read Case Study" : "View Overview"}</span>
-          <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+          <span>{project.caseStudyReady ? "Read engineering case study" : "Review project overview"}</span>
+          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
         </Link>
 
         {project.repositoryUrl && (
@@ -98,10 +105,10 @@ export function ProjectCard({
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted hover:text-foreground inline-flex items-center gap-1.5 focus-ring rounded-xs py-1"
-            aria-label={`${project.title} source code repository`}
+            aria-label={`${project.title} GitHub profile link`}
           >
             <GitBranch className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
-            <span>Repository</span>
+            <span>View GitHub profile</span>
           </a>
         )}
       </div>

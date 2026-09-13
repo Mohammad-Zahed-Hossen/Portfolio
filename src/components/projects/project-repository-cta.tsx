@@ -17,10 +17,10 @@ export function ProjectRepositoryCta({
       <div className="space-y-1.5 max-w-lg">
         <div className="flex items-center gap-2 text-foreground font-semibold text-base">
           <GitBranch className="h-4 w-4 text-accent" aria-hidden="true" />
-          <span>Inspect Source Code &amp; Test Contracts</span>
+          <span>View GitHub profile</span>
         </div>
         <p className="text-xs text-muted leading-relaxed">
-          The code repository for <strong className="text-foreground">{projectTitle}</strong> contains test fixtures, evaluation scripts, and architectural modules.
+          The GitHub profile linked for <strong className="text-foreground">{projectTitle}</strong> provides the available source code and project context.
         </p>
       </div>
 
@@ -30,7 +30,7 @@ export function ProjectRepositoryCta({
           className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-xs font-mono font-medium text-white hover:bg-accent-hover focus-ring transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 hover:shadow-sm shadow-xs"
         >
           <Terminal className="h-3.5 w-3.5" aria-hidden="true" />
-          <span>Open Repository</span>
+          <span>View GitHub profile</span>
         </ExternalLink>
       </div>
     </div>

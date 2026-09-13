@@ -13,13 +13,13 @@ export function ProjectLimitations({
     <section id="limitations" aria-labelledby="limitations-heading" className="space-y-8">
       <div className="space-y-1">
         <div className="text-xs font-mono uppercase tracking-wider text-accent font-semibold">
-          Honest Assessment
+          Limits and next steps
         </div>
         <h2 id="limitations-heading" className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-          Known Limitations &amp; Development Roadmap
+          What remains constrained or incomplete
         </h2>
         <p className="text-sm sm:text-base text-muted max-w-3xl">
-          Transparent boundary conditions, operational edge cases, and targeted improvements prioritized for upcoming iterations.
+          Current boundaries are documented alongside concrete next steps; neither is presented as completed work.
         </p>
       </div>
 
@@ -33,7 +33,7 @@ export function ProjectLimitations({
             </h3>
           </div>
 
-          <ul className="space-y-2.5 text-xs text-muted">
+          <ul className="space-y-3 text-sm text-muted">
             {limitations.map((item) => (
               <li key={item} className="flex items-start gap-2.5">
                 <span className="font-mono text-amber-500 font-bold">&bull;</span>
@@ -52,7 +52,7 @@ export function ProjectLimitations({
             </h3>
           </div>
 
-          <ul className="space-y-2.5 text-xs text-muted">
+          <ul className="space-y-3 text-sm text-muted">
             {nextSteps.map((step) => (
               <li key={step} className="flex items-start gap-2.5">
                 <span className="font-mono text-accent font-bold">&rarr;</span>

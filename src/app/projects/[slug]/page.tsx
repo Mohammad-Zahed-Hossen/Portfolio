@@ -46,10 +46,10 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} &middot; Case Study | ${siteConfig.name}`,
+    title: `${project.title} Engineering Case Study | ${siteConfig.name}`,
     description: project.summary,
     openGraph: {
-      title: `${project.title} &middot; Architectural Case Study`,
+      title: `${project.title} Engineering Case Study`,
       description: project.summary,
       url: `https://mohammad-zahed-hossen.vercel.app/projects/${project.slug}`,
       type: "article",
@@ -96,13 +96,13 @@ export default async function ProjectDetailPage({
               >
                 <div className="space-y-2">
                   <div className="text-xs font-mono uppercase tracking-wider text-accent font-semibold">
-                    Core Problem Definition
+                    Problem and constraints
                   </div>
                   <h2
                     id="problem-heading"
                     className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground"
                   >
-                    The Engineering Challenge
+                    What the system needs to solve
                   </h2>
                 </div>
 
@@ -138,13 +138,13 @@ export default async function ProjectDetailPage({
               <section aria-labelledby="solution-heading" className="space-y-4">
                 <div className="space-y-1">
                   <div className="text-xs font-mono uppercase tracking-wider text-accent font-semibold">
-                    Architectural Response
+                    Engineering approach
                   </div>
                   <h2
                     id="solution-heading"
                     className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground"
                   >
-                    Architectural Strategy &amp; Core Approach
+                    How the system addresses it
                   </h2>
                 </div>
                 <div className="rounded-xl border border-border bg-surface p-6 sm:p-8 space-y-4">

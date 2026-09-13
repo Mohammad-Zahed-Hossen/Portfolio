@@ -17,13 +17,13 @@ export function ProjectEvidenceSection({
     <section id="evidence" aria-labelledby="evidence-heading" className="space-y-6">
       <div className="space-y-1">
         <div className="text-xs font-mono uppercase tracking-wider text-accent font-semibold">
-          Verification &amp; Evaluation
+          Evidence and evaluation
         </div>
         <h2 id="evidence-heading" className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-          Empirical Evidence &amp; System Contracts
+          What is measured, implemented, or still planned
         </h2>
         <p className="text-sm sm:text-base text-muted max-w-3xl">
-          Verifiable metrics, assertion contracts, and evaluation artifacts distinguishing measured outcomes from planned validation cycles.
+          Status labels separate observed measurements and implemented contracts from active or planned validation work.
         </p>
       </div>
 
@@ -39,8 +39,8 @@ export function ProjectEvidenceSection({
           <p className="text-base sm:text-lg font-mono font-bold text-foreground">
             {benchmarkContext}
           </p>
-          <p className="text-xs font-mono text-muted">
-            Notice: Observed local benchmark context, not a general speed guarantee. Results vary with CPU frequency, file complexity, and page density.
+          <p className="text-sm leading-relaxed text-muted">
+            One local observation, not a speed guarantee. Results vary with CPU, file complexity, and page density.
           </p>
         </div>
       )}
@@ -64,7 +64,7 @@ export function ProjectEvidenceSection({
                 {item.value}
               </div>
 
-              <p className="text-xs text-muted leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 {item.context}
               </p>
             </div>

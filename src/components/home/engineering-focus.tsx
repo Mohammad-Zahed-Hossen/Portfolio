@@ -1,6 +1,7 @@
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ShieldCheck, FileSpreadsheet, Eye } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 export function EngineeringFocus() {
   const focusAreas = [
@@ -9,21 +10,21 @@ export function EngineeringFocus() {
       title: "Reliable AI Systems",
       eyebrow: "Systems & Retrieval",
       description:
-        "Building local-first evaluation frameworks with deterministic test fixtures, citation validation contracts, and explicit abstention when retrieval evidence is weak or contradictory.",
+        "Designing retrieval evaluation around deterministic fixtures, citation checks, and explicit abstention when available evidence is weak or contradictory.",
     },
     {
       icon: FileSpreadsheet,
       title: "Document Intelligence",
       eyebrow: "Parsing & Conversion",
       description:
-        "Engineering CPU-first parsers that convert multi-page documents into clean markdown while preserving tabular schemas and extracting figures without costly GPU dependencies.",
+        "Building CPU-oriented document workflows that route files appropriately, preserve usable Markdown structure, and keep visual assets linked to the output.",
     },
     {
       icon: Eye,
       title: "Trustworthy Multimodal Research",
       eyebrow: "Vision-Language Reliability",
       description:
-        "Investigating evidence-grounded calibration and selective abstention in open-weight generative MLLMs when visual inputs are ambiguous, missing, or degraded.",
+        "Planning undergraduate research on calibration and selective abstention when multimodal visual evidence is ambiguous, missing, or degraded.",
     },
   ];
 
@@ -32,22 +33,22 @@ export function EngineeringFocus() {
       <PageContainer>
         <div className="space-y-10">
           <SectionHeading
-            eyebrow="Core Competencies"
-            title="Engineering Focus"
-            description="Clear architectural specializations driven by constraints, deterministic evaluation, and verifiable outputs."
+            eyebrow="How I approach the work"
+            title="Three connected areas of practice"
+            description="The projects connect evaluation, document processing, and careful research planning rather than treating them as disconnected keywords."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Reveal className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {focusAreas.map((area) => {
               const Icon = area.icon;
               return (
                 <div
                   key={area.title}
-                  className="flex flex-col justify-between rounded-lg border border-border bg-surface p-6 sm:p-7 space-y-4"
+                  className="group flex flex-col justify-between rounded-[1.25rem] border border-border bg-surface-raised p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-accent/50 sm:p-7 space-y-4"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <div className="rounded-md border border-border bg-muted-surface p-2 text-accent">
+                      <div className="rounded-lg border border-accent/20 bg-accent/5 p-2 text-accent transition-transform duration-200 group-hover:rotate-3">
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </div>
                       <span className="text-[11px] font-mono text-muted uppercase tracking-wider">
@@ -66,7 +67,7 @@ export function EngineeringFocus() {
                 </div>
               );
             })}
-          </div>
+          </Reveal>
         </div>
       </PageContainer>
     </section>

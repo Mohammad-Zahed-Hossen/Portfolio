@@ -14,10 +14,10 @@ export function AboutIntro() {
             <strong className="font-semibold text-foreground">{siteConfig.scholarship}</strong>.
           </p>
           <p className="text-sm sm:text-base text-muted leading-relaxed">
-            My engineering work is directed toward the reliability of machine learning applications. In modern software, AI models are frequently integrated as opaque components without sufficient verification, leading to silent failures, hallucinated sources, and fragile production deployments.
+            I focus on the parts around an AI model that make its behavior easier to inspect: what evidence it used, what was checked, and where the system should stop rather than overstate an answer.
           </p>
           <p className="text-sm sm:text-base text-muted leading-relaxed">
-            I focus on engineering the deterministic contracts surrounding AI models: evidence-grounded retrieval pipelines, citation verification harnesses, and CPU-efficient document intelligence engines. I believe a system that knows when to abstain from answering is fundamentally superior to one that generates plausible but unfounded output.
+            That leads me to evidence-grounded retrieval, citation checks, deterministic test fixtures, and CPU-oriented document workflows. I value systems that can state their limits as clearly as their intended behavior.
           </p>
         </div>
 

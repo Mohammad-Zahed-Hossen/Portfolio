@@ -11,13 +11,13 @@ export function ProjectWorkflow({ steps }: ProjectWorkflowProps) {
     <section id="workflow" aria-labelledby="workflow-heading" className="space-y-6">
       <div className="space-y-1">
         <div className="text-xs font-mono uppercase tracking-wider text-accent font-semibold">
-          Execution Lifecycle
+          System flow
         </div>
         <h2 id="workflow-heading" className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-          Pipeline Workflow &amp; Operational Phases
+          What happens from input to output
         </h2>
         <p className="text-sm sm:text-base text-muted max-w-3xl">
-          Sequential execution stages enforced across incoming inputs, intermediate verifications, and final data serialization.
+          The ordered stages from incoming input through processing, checks, and output assembly.
         </p>
       </div>
 

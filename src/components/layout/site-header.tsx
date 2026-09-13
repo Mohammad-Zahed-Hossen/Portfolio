@@ -24,9 +24,9 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-background">
+    <header className="sticky top-0 z-40 w-full border-b border-border/80 bg-background/82 backdrop-blur-xl shadow-[0_8px_28px_-24px_var(--foreground)]">
       <PageContainer>
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-[4.5rem] items-center justify-between">
           {/* Logo / Identity */}
           <div className="flex items-center gap-3">
             <Link
@@ -61,14 +61,14 @@ export function SiteHeader() {
                   className={cn(
                     "relative px-3 py-1.5 text-sm font-medium transition-colors focus-ring rounded-md",
                     isActive
-                      ? "text-accent font-semibold bg-muted-surface"
-                      : "text-muted hover:text-foreground hover:bg-muted-surface/60"
+                      ? "text-accent font-semibold bg-accent/8"
+                      : "text-muted hover:text-foreground hover:bg-muted-surface/70"
                   )}
                 >
                   {item.label}
                   {isActive && (
                     <span
-                      className="absolute bottom-0 left-3 right-3 h-[2px] bg-accent"
+                      className="absolute bottom-1 left-3 right-3 h-[2px] rounded-full bg-accent shadow-[0_0_10px_var(--accent)]"
                       aria-hidden="true"
                     />
                   )}
@@ -89,7 +89,7 @@ export function SiteHeader() {
               onClick={() => setMobileMenuOpen(true)}
               aria-expanded={mobileMenuOpen}
               aria-label="Open mobile menu"
-              className="inline-flex md:hidden h-9 w-9 items-center justify-center rounded-md border border-border bg-surface text-muted hover:text-foreground focus-ring transition-colors duration-150"
+              className="inline-flex md:hidden h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface/80 text-muted hover:border-accent hover:text-foreground focus-ring transition-colors duration-150"
             >
               <Menu className="h-4 w-4" aria-hidden="true" />
             </button>

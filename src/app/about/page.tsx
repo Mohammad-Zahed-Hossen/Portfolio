@@ -10,7 +10,7 @@ import { SocialLinks } from "@/components/shared/social-links";
 export const metadata: Metadata = {
   title: `About | ${siteConfig.name}`,
   description:
-    "Background, academic merit scholarship, engineering principles, and technical specializations of Mohammad Zahed Hossen, final-year CSE student.",
+    "How Mohammad Zahed Hossen approaches evidence, constraints, documentation, and uncertainty in engineering work.",
 };
 
 export default function AboutPage() {
@@ -19,9 +19,9 @@ export default function AboutPage() {
       <PageContainer>
         <div className="space-y-16 max-w-4xl">
           <SectionHeading
-            eyebrow="Profile &amp; Engineering Ethos"
-            title="About Mohammad Zahed Hossen"
-            description="Final-year Computer Science and Engineering student at East Delta University building verifiable AI systems, deterministic evaluation workflows, and practical tools."
+            eyebrow="How I work"
+            title="Engineering with evidence and clear limits"
+            description="Final-year CSE student at East Delta University focused on systems whose evidence, trade-offs, and failure states can be inspected."
             level="h1"
           />
 

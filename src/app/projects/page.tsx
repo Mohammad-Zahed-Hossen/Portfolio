@@ -8,7 +8,7 @@ import { ProjectCard } from "@/components/projects/project-card";
 export const metadata: Metadata = {
   title: `Selected Projects | ${siteConfig.name}`,
   description:
-    "Engineering case studies in evidence-grounded retrieval, CPU-first document intelligence, and role-based institutional management by Mohammad Zahed Hossen.",
+    "Evidence-led case studies in retrieval evaluation, CPU-oriented document conversion, and an in-progress school-management application.",
 };
 
 export default function ProjectsPage() {
@@ -20,9 +20,9 @@ export default function ProjectsPage() {
         <div className="space-y-12">
           {/* Introductory statement */}
           <SectionHeading
-            eyebrow="Evidence-Led Engineering Catalogue"
-            title="Selected Projects &amp; Systems"
-            description="This catalogue features verified engineering implementations designed around tangible operational constraints. Each project card leads to an in-depth architectural case study detailing concrete trade-offs, data-flow diagrams, and test contracts."
+            eyebrow="Project case studies"
+            title="Systems documented with their limits"
+            description="Each project records its problem, approach, evidence, and current maturity. Full case studies provide technical decisions, system flow, and known limitations; status labels distinguish active work from completed evidence."
             level="h1"
           />
 
@@ -35,8 +35,8 @@ export default function ProjectsPage() {
 
           {/* Transparent Scope Note */}
           <div className="rounded-lg border border-border bg-muted-surface/50 p-5 text-xs font-mono text-muted leading-relaxed">
-            <span className="font-semibold text-foreground">Catalogue Architecture Note: </span>
-            This catalogue functions as an extensible registry for verified engineering work. Each entry links to a dedicated architectural case study covering system data flow, decision rationales, empirical evidence, and known limitations.
+            <span className="font-semibold text-foreground">Reading note: </span>
+            These entries are documentation, not marketing claims. Evidence labels distinguish measured observations, implemented contracts, active development, and planned work.
           </div>
         </div>
       </PageContainer>

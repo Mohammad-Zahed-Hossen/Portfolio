@@ -81,7 +81,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
       {/* Drawer panel */}
       <div
         ref={navRef}
-        className="fixed inset-y-0 right-0 w-full max-w-xs border-l border-border bg-background p-6 shadow-lg flex flex-col justify-between"
+        className="fixed inset-y-0 right-0 w-full max-w-sm border-l border-border/80 bg-background p-6 shadow-2xl shadow-background/50 backdrop-blur-xl flex flex-col justify-between"
       >
         <div className="space-y-6">
           <div className="flex items-center justify-between border-b border-border pb-4">
@@ -114,7 +114,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                   className={cn(
                     "flex items-center justify-between rounded-md px-3 py-2.5 text-sm font-medium transition-colors focus-ring",
                     isActive
-                      ? "border border-border bg-muted-surface font-semibold text-accent"
+                      ? "border border-accent/25 bg-accent/8 font-semibold text-accent"
                       : "text-muted hover:bg-muted-surface hover:text-foreground"
                   )}
                 >

@@ -52,7 +52,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       aria-label={`Current theme: ${theme}. Click to switch theme`}
       title={`Current: ${theme} (Click to switch)`}
       className={cn(
-        "inline-flex h-9 items-center justify-center gap-1.5 rounded-md border border-border bg-surface px-2.5 text-xs font-mono text-muted transition-colors hover:border-accent hover:text-foreground focus-ring",
+        "inline-flex h-9 items-center justify-center gap-1.5 rounded-full border border-border bg-surface/80 px-3 text-xs font-mono text-muted transition-all duration-200 hover:-translate-y-px hover:border-accent hover:text-foreground focus-ring",
         className
       )}
     >

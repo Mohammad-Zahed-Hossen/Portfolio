@@ -31,7 +31,7 @@ export function ProjectArchitectureDiagram({
       </div>
 
       {/* Architecture Visual Surface */}
-      <div className="rounded-xl border border-border bg-surface p-4 sm:p-6 lg:p-8 space-y-6">
+      <div className="rounded-[1.25rem] border border-border bg-surface-raised p-4 sm:p-6 lg:p-8 space-y-6 luminous-border">
         {/* Diagram Status Tag */}
         {architecture.statusNote && (
           <div className="rounded-md border border-border/80 bg-muted-surface p-3 flex items-start gap-2.5 text-xs font-mono text-muted">
@@ -87,8 +87,8 @@ export function ProjectArchitectureDiagram({
 /* -------------------------------------------------------------------------- */
 function EvidenceOpsDiagram({ nodes }: { nodes: ArchitectureNode[] }) {
   return (
-    <div className="w-full overflow-x-auto py-2">
-      <div className="min-w-[680px] max-w-4xl mx-auto space-y-4">
+    <div className="w-full py-2">
+      <div className="max-w-4xl mx-auto space-y-4">
         {/* Step-by-step pipeline container */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
           {/* Phase 1: Query & Planning */}
@@ -159,8 +159,8 @@ function EvidenceOpsDiagram({ nodes }: { nodes: ArchitectureNode[] }) {
 /* -------------------------------------------------------------------------- */
 function MarkdownConverterDiagram({ nodes }: { nodes: ArchitectureNode[] }) {
   return (
-    <div className="w-full overflow-x-auto py-2">
-      <div className="min-w-[680px] max-w-4xl mx-auto space-y-6">
+    <div className="w-full py-2">
+      <div className="max-w-4xl mx-auto space-y-6">
         {/* Tier 1: Input & Classifier */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto">
           <DiagramNodeBox node={nodes[0]} />
@@ -233,8 +233,8 @@ function MarkdownConverterDiagram({ nodes }: { nodes: ArchitectureNode[] }) {
 /* -------------------------------------------------------------------------- */
 function SchoolBridgeDiagram({ nodes }: { nodes: ArchitectureNode[] }) {
   return (
-    <div className="w-full overflow-x-auto py-2">
-      <div className="min-w-[680px] max-w-4xl mx-auto space-y-6">
+    <div className="w-full py-2">
+      <div className="max-w-4xl mx-auto space-y-6">
         {/* Layer 1: Actors & Access */}
         <div className="rounded-lg border border-border bg-muted-surface/30 p-4 space-y-3">
           <div className="text-[11px] font-mono text-muted uppercase tracking-wider font-semibold">

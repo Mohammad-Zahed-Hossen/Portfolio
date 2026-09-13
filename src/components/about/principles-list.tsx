@@ -5,25 +5,25 @@ export function PrinciplesList() {
     {
       title: "Evidence over claims",
       description:
-        "Technical assertions must be backed by verifiable repositories, deterministic test fixtures, reproducible benchmark commands, or tangible architectural artifacts. Avoid marketing slogans and ungrounded capability claims.",
+        "I treat repositories, deterministic fixtures, benchmark commands, and architectural artifacts as stronger evidence than broad capability claims.",
     },
     {
       icon: CheckCircle2,
-      title: "Reproducible and local-first thinking when practical",
+      title: "Reproducible, local-first work when practical",
       description:
-        "Design systems that run locally under predictable hardware constraints before delegating to external cloud services. A local evaluation suite prevents provider lock-in and enables rapid deterministic iteration.",
+        "When practical, I start with local execution under known hardware limits. Local evaluation also makes iteration easier to inspect and repeat.",
     },
     {
       icon: CheckCircle2,
       title: "Clear technical documentation",
       description:
-        "Code is incomplete without lucid documentation of its architectural boundaries, data flow, and trade-offs. Explaining why an alternative approach was rejected is as vital as documenting the chosen implementation.",
+        "I document data flow, boundaries, and trade-offs so another reader can understand the chosen path and its limits.",
     },
     {
       icon: CheckCircle2,
       title: "Honest handling of uncertainty and limitations",
       description:
-        "No engineering solution is without trade-offs. Candidly identifying where a system fails, where edge cases degrade, and where human intervention remains necessary builds authentic engineering trust.",
+        "I record incomplete validation, edge cases, and conditions where a system can fail or needs human review.",
     },
   ];
 
@@ -34,7 +34,7 @@ export function PrinciplesList() {
           Working Principles
         </h2>
         <p className="text-sm text-muted">
-          The core engineering tenets that guide my system architectures and research workflows.
+          The working standards behind the projects and research direction on this site.
         </p>
       </div>
 

@@ -13,7 +13,7 @@ export function ResearchDirectionSection() {
         <div className="flex items-center gap-2 text-accent">
           <Compass className="h-5 w-5" aria-hidden="true" />
           <span className="text-xs font-mono uppercase tracking-wider font-semibold">
-            Undergraduate Research Focus &middot; Final Year CSE
+            Current undergraduate research direction
           </span>
         </div>
 
@@ -22,7 +22,7 @@ export function ResearchDirectionSection() {
         </h2>
 
         <p className="text-sm sm:text-base text-muted leading-relaxed max-w-3xl">
-          Vision-language models excel at describing canonical scenes but exhibit severe failure modes when visual inputs are ambiguous, partially corrupted, or contradictory to textual priors. This research trajectory investigates calibration and test-time verification methods that allow generative MLLMs to detect low-support tokens and selectively abstain from answering.
+          This is a proposed thesis direction. The current question is how generative MLLMs should calibrate or abstain when visual inputs are ambiguous, degraded, or insufficient. Literature review, problem refinement, and benchmark planning come before a final contribution claim.
         </p>
       </div>
 
@@ -30,10 +30,10 @@ export function ResearchDirectionSection() {
       <div className="space-y-4">
         <div className="space-y-1">
           <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
-            Methodological Boundaries &amp; Approach
+            Current boundaries and approach
           </h3>
           <p className="text-xs sm:text-sm text-muted">
-            Strict constraints applied to ensure reproducibility and rigor without reliance on opaque third-party verifiers.
+            Planned methods prioritize inspectable models, public datasets, and reviewable evaluation rather than opaque third-party verifiers.
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export function ResearchDirectionSection() {
       <div className="rounded-lg border border-border/90 bg-muted-surface p-5 space-y-2">
         <div className="flex items-center gap-2 text-foreground font-semibold text-xs font-mono uppercase tracking-wider">
           <Info className="h-4 w-4 text-accent" aria-hidden="true" />
-          <span>Current Status: {researchCurrentStatus.phase}</span>
+          <span>Current stage: {researchCurrentStatus.phase}</span>
         </div>
         <p className="text-xs text-muted leading-relaxed">
           {researchCurrentStatus.description}
